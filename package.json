@@ -1,0 +1,27 @@
+{
+  "name": "adresnie-tablichki",
+  "version": "1.0.0",
+  "description": "network for \"adresnie-tablichki\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Buyanov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "nodemailer": "^4.3.1",
+    "pug": "^2.0.0-rc.4",
+    "sms_ru": "0.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

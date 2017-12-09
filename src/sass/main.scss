@@ -1,0 +1,28 @@
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+input {
+    border: 0;
+    &:focus {
+        outline: 0;
+    }
+}
+body {
+    overflow-x: hidden;
+}
+
+@import "slick-theme.scss";
+@import "slick.scss";
+@import "header.scss";
+@import "calc.scss";
+@import "materials.scss";
+@import "seo-text.scss";
+@import "reviews.scss";
+@import "video.scss";
+@import "delivery.scss";
+@import "order-payment.scss";
+@import "contact.scss";
+@import "pay-online.scss";
+@import "footer.scss";

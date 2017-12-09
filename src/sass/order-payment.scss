@@ -1,0 +1,98 @@
+.pay {
+    padding-top: 60px;
+    background-color: #faf4ee;
+    position: relative;
+    &__block {
+        background: url('/dist/image/pay/pay-bg.jpg') no-repeat;
+        background-position-y: 100%;
+        &-first {
+            margin-right: auto;
+            width: 45%;
+            padding-right: 10px;
+            & a {
+                text-decoration: none;
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+                & .button {
+                    border-radius: 3px;
+                    background-color: #b9d500;
+                    width: 220px;
+                    height: 40px;
+                    color: #ffffff;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    padding-top: 8px;
+                }
+            }
+            
+        }
+        &-second {
+            margin-left: auto;
+            width: 45%;
+        }
+        &_logo {
+            position: absolute;
+            border-width: 7px;
+            border-color:  #b9d500;
+            border-style: solid;
+            background-color:  #f6f6f6;
+            box-shadow: 0px 3px 11.18px 1.82px rgba(0, 0, 0, 0.11);
+            width: 527px;
+            height: 188px;
+            padding: 40px;
+            top: 15%;
+            right: 11%;
+            & img {
+                margin-right: 7px;
+                margin-bottom: 17px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .pay__block_logo {
+        right: 0
+    }
+    .pay__block-first {
+        width: 50%;
+        a {
+            .button {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .pay__block-second {
+        width: 60%;
+        background-color: #faf4ee;
+        padding-left: 15px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .pay__block_logo {
+        right: 2%;
+        width: 360px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pay__block {
+        background: #faf4ee;
+        &_logo {
+            position: static;
+            right: 0;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        &-first {
+            width: 100%;
+        }
+        &-second {
+            width: 100%;
+        }
+    }
+}

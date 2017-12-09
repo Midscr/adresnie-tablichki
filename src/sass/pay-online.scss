@@ -1,0 +1,72 @@
+.contacts__pay {
+    float: right;
+    width: 50%;
+    height: 400px;    
+}
+.contacts__pay-wr {
+    max-width: 530px;
+    margin-right: auto;
+    padding: 50px 0 50px 50px;
+}
+.form__pay {
+    & fieldset {
+        border: none;
+        padding: 0 10px;
+        margin: 0;
+    }
+    &_text {
+        display: block;
+        width: 100%;
+        height: 47px;
+        text-transform: uppercase;
+        font-family: PantonLightCaps, sans-serif;
+        color: #00b3c8;
+        margin-bottom: 12px;
+        padding: 0 10px 0 10px;
+        border: 1px solid #c2c2c2;
+        border-radius: 3px;
+        &:focus {
+            border-color: #00b3c8;
+        }
+    }
+    &_button {
+        border-radius: 3px;
+        background-color: #b9d500;
+        width: 220px;
+        height: 40px;
+        color: #ffffff;
+        font-size: 18px;
+        text-transform: uppercase;
+        display: block;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 991px) {
+    .contacts__pay-wr {
+        margin: 0 auto;
+        max-width: 750px;
+        padding: 0 15px 0 15px
+    }
+    .contacts__pay {
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 525px) {
+    .contacts__pay {
+        padding: 10px 10px 20px 10px;
+        margin-bottom: 185px;
+    }
+    .nav-tab label {
+        display: block;
+    }
+    .tab-1 {
+        margin-top: 100px;
+    }
+    .tab-2 {
+        margin-top: 58px;
+    }
+    .tab-3 {
+        margin-top: 16px;
+    }
+}

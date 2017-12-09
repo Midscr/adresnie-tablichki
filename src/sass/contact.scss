@@ -1,0 +1,125 @@
+.contacts {
+    position: relative;
+}
+.contacts__details {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    color: #ffffff;
+    padding: 45px 45px 45px 60px;
+    float: left;
+    width: 50%;
+    height: auto;
+    background-color:  #00b5c5;
+    & h2 {
+        font-family: PantonBlackCaps, sans-serif;
+        text-transform: uppercase;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    & table {
+        font-family: Lato, sans-serif;
+        width: 100%;
+        font-size: 16px;
+        border: 2px solid #ffffff;
+    }
+    tr {
+        border: 1px dashed #ffffff;
+    }
+    td {
+        padding: 10px 5px 10px 20px;
+        border: 1px dashed #ffffff;
+    }
+}
+.contacts__map {
+    float: right;
+    width: 50%;
+    height: 400px;    
+}
+.contact__details-wr {
+    max-width: 530px;
+    margin-left: auto;
+}
+.contacts__map-wr {
+    margin-right: auto;
+    height: 100%;    
+    width: 100%;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tab {
+    position: relative;
+    text-align: center;
+    & label {
+        padding: 10px;
+        border: 1px solid transparent;
+        transition: 0.3s all;
+        &:hover {
+            color: #00b5c5
+        }
+    }
+}
+
+.nav-tab_1, .nav-tab_2, .nav-tab_3 {
+    display: none;
+}
+
+.tab-1, .tab-2, .tab-3 {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.nav-tab_1:checked {
+    & + .tab-1 {
+        display: block;
+    }
+}
+
+.nav-tab_2:checked {
+    color: #00b5c5;
+    border-color: #00b5c5;
+    & + .tab-2 {
+        display: block;
+    }
+}
+
+.nav-tab_3:checked {
+    color: #00b5c5;
+    border-color: #00b5c5;
+    & + .tab-3 {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .contacts__details {
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+        position: static;
+    }
+    .contact__details-wr, .contacts__map-wr {
+        margin: 0 auto;
+        max-width: 750px;
+        padding: 0 15px 0 15px
+    }
+    .contacts__map {
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 525px) {
+    .contacts__details, .contacts__map {
+        padding: 10px 10px 20px 10px;
+    }
+    .contacts__details table {
+        font-size: 12px;
+    }
+}

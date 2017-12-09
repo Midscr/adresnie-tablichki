@@ -1,0 +1,67 @@
+section.contacts.clearfix#contact
+    .contacts__details
+        .contact__details-wr
+            h2 реквизиты
+            table
+                tr
+                    td Наименование
+                    td ИП Хализов Александр Сергеевич
+                tr
+                    td ИНН
+                    td 260806481409
+                tr
+                    td ОГРН
+                    td 315265100027855
+                tr
+                    td Расчетный счет
+                    td 40802810200000153158
+                tr
+                    td Банк
+                    td АО «Тинькофф Банк»
+                tr
+                    td БИК Банка
+                    td 044525974
+    .contacts__pay
+        .contacts__pay-wr
+            .content__block
+                .content__block_label
+                    h2 Информация oб оплате
+                .content__block_text
+                    p На данной странице необходимо выбрать сумму для оплаты и ввести данные заказчика(ФИО и номер телефона).
+                    p После нажатия кнопки "ОПЛАТИТЬ", откроется страница платежной системы, где Вы сможете выбрать удобный способ оплаты, и внести предоплату. 
+                    p После поступления средств на расчетный счет нашей компании с Вами свяжется менеджет и уточнит сроки доставки.
+            .nav-tab
+                label#tab-1 Оплатить 500 руб.
+                    input.nav-tab_1(for="tab-1" type="radio" name="oplata" value="Оплата 500руб.")
+                    .tab-1    
+                        form.form__pay(name="30725_buyNow_simple_button" id="30725_buyNow_simple_button" action="https://www.moneta.ru/shopping-94857653.htm" target="_blank" method="post")
+                            fieldset
+                                input(type="hidden" name="MNT_ITEM_ID" value="30725")
+                                input(type="hidden" name="MNT_QUANTITY" value="1")
+                                input.form__pay_text(type='text' name='MNT_DESCRIPTION' placeholder="Введите ФИО и номер телефона заказчика" required)
+                                input.form__pay_button(type="submit" value="Оплатить 500 руб.")
+
+                label#tab-2 Оплатить 1350 руб.
+                    input.nav-tab_2(for="tab-2" type="radio" name="oplata" value="Оплата 1350руб." checked)
+                    .tab-2
+                        form.form__pay(name="30788_buyNow_simple_button" id="30788_buyNow_simple_button" action="https://www.moneta.ru/shopping-94857653.htm" target="_blank" method="post")
+                            fieldset
+                                input(type="hidden" name="MNT_ITEM_ID" value="30788")
+                                input(type="hidden" name="MNT_QUANTITY" value="1")
+                                input.form__pay_text(type='text' name='MNT_DESCRIPTION' placeholder="Введите ФИО и номер телефона заказчика" required)
+                                input.form__pay_button(type="submit" value="Оплатить 1350 руб.")
+                
+                label#tab-3 Оплатить 1750 руб.
+                    input.nav-tab_3(for="tab-3" type="radio" name="oplata" value="Оплата 1750руб.")
+                    .tab-3
+                        form.form__pay(name="30787_buyNow_simple_button" id="30787_buyNow_simple_button" action="https://www.moneta.ru/shopping-94857653.htm" target="_blank" method="post")
+                            fieldset
+                                input(type="hidden" name="MNT_ITEM_ID" value="30787")
+                                input(type="hidden" name="MNT_QUANTITY" value="1")
+                                input.form__pay_text(type='text' name='MNT_DESCRIPTION' placeholder="Введите ФИО и номер телефона заказчика" required)
+                                input.form__pay_button(type="submit" value="Оплатить 1750 руб.")
+            
+            
+            
+
+            
