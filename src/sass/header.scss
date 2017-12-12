@@ -5,10 +5,11 @@
 
 .header {
     width: 100%;
-    min-height: 412px;
-    background: url('/dist/image/header-bg.jpg') no-repeat center center;
+    min-height: 360px;
+    background: url('/dist/image/a-tbl-h-bg.jpg') no-repeat center center;
     background-size: cover;
     color: white;
+    margin-bottom: 80px;
 }
 .navbar{
     font-family: PantonLightCaps, sans-serif;
@@ -182,8 +183,15 @@ ul {
     color:  #b9d500;
 }
 .header__title { 
+    position: relative;
     & h1 {
         font-size: 40px;
+    }
+    & .h-img {
+        position: absolute;
+        top: 190px;
+        right: 335px;
+        width: 40%;
     }
 }
 .vex.vex-theme-default .vex-content {
@@ -255,6 +263,16 @@ ul {
     padding-top: 80px;
     padding-bottom: 240px;
 }
+@media screen and (max-width: 1200px) {
+    .header__title {
+        & .h-img {
+            width: 50%;
+            right: 250px;
+        }
+    }
+
+}
+
 @media screen and (max-width: 991px) {
     .menu__item {
         font-size: 14px;
@@ -269,6 +287,11 @@ ul {
     .header__title { 
         & h1 {
             font-size: 30px;
+        }
+        & .h-img {
+            width: 60%;
+            top: 160px;
+            right: 160px;
         }
     }
 }
@@ -300,6 +323,12 @@ ul {
         font-size: 20px;
         padding: 10px 15px;
     }
+    .header__title {
+        & .h-img {
+            top: 200px;
+            right: 130px;
+        }
+    }
 }
 @media screen and (max-width: 450px) {
     .header {
@@ -322,6 +351,22 @@ ul {
         margin-top: 15px;
         & h1 {
             font-size: 25px;
+        }
+        & .h-img {
+            top: 150px;
+            right: 90px;
+        }
+    }
+}
+@media screen and (max-width: 375px) {
+    .header {
+        margin-bottom: 45px;
+    }
+    .header__title {
+        & .h-img {
+            width: 75%;
+            top: 158px;
+            right: 55px;
         }
     }
 }

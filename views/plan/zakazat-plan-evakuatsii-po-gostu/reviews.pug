@@ -1,0 +1,28 @@
+section.review#review
+    .container
+        p.review__label отзывы клиентов
+        .slider
+            .slider__box
+                .slider__box_image
+                    img(src="/dist/image/reviews/first.jpg", alt="Первый отзыв")
+                .slider__box_text
+                    p.slider__box_text-common= 'По правилам пожарной безопасности план-схемы эвакуации должны быть на каждом этаже. В нашем офисном центре они были, но старые, и при последней проверке инспектор настоятельно рекомендовал заменить. Мы обратились в эту компанию, все получилось быстро.'
+                    p.slider__box_text-common= 'А главное, пленка для схемы полностью соответствует ГОСТУ.'
+                    p.slider__box_text-whois= 'Ангелина Троцик, '
+                    p.slider__box_text-whois= 'г. ' + city.city
+            .slider__box
+                .slider__box_image
+                    img(src="/dist/image/reviews/second.jpg", alt="Второй отзыв")
+                .slider__box_text
+                    p.slider__box_text-common= 'Заказывали план пожарной эвакуации в частный детский сад. Изготовили нам его очень быстро, нужного размера и под оргстеклом, в рамочке.'
+                    p.slider__box_text-common= 'Позвонили, мы поехали забрали, и больше никаких проблем с проверками.'
+                    p.slider__box_text-whois= 'Ирина Викторовна, '
+                    p.slider__box_text-whois= 'г. ' + city.city
+            .slider__box
+                .slider__box_image
+                    img(src="/dist/image/reviews/third.jpg", alt="Третий отзыв")
+                .slider__box_text
+                    p.slider__box_text-common= 'В других компаниях нам не могли предоставить сертификаты на материалы, а здесь используют фотолюминесцентную пленку по ГОСТу. Порадовали и гарантии, и цена, и удобная доставка.'
+                    p.slider__box_text-common= 'Все быстро и качественно! Однозначно рекомендуем.'
+                    p.slider__box_text-whois= 'Александр Пальчиков, '
+                    p.slider__box_text-whois= 'г. ' + city.city

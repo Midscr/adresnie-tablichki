@@ -308,10 +308,11 @@ body {
 
 .header {
   width: 100%;
-  min-height: 412px;
-  background: url("../../dist/image/header-bg.jpg") no-repeat center center;
+  min-height: 360px;
+  background: url("../../../dist/image/a-tbl-h-bg.jpg") no-repeat center center;
   background-size: cover;
   color: white;
+  margin-bottom: 80px;
 }
 
 .navbar {
@@ -503,8 +504,19 @@ ul {
   color: #b9d500;
 }
 
+.header__title {
+  position: relative;
+}
+
 .header__title h1 {
   font-size: 40px;
+}
+
+.header__title .h-img {
+  position: absolute;
+  top: 190px;
+  right: 335px;
+  width: 40%;
 }
 
 .vex.vex-theme-default .vex-content {
@@ -602,6 +614,13 @@ ul {
   padding-bottom: 240px;
 }
 
+@media screen and (max-width: 1200px) {
+  .header__title .h-img {
+    width: 50%;
+    right: 250px;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .menu__item {
     font-size: 14px;
@@ -620,6 +639,12 @@ ul {
 
   .header__title h1 {
     font-size: 30px;
+  }
+
+  .header__title .h-img {
+    width: 60%;
+    top: 160px;
+    right: 160px;
   }
 }
 
@@ -658,6 +683,11 @@ ul {
     font-size: 20px;
     padding: 10px 15px;
   }
+
+  .header__title .h-img {
+    top: 200px;
+    right: 130px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -690,6 +720,23 @@ ul {
 
   .header__title h1 {
     font-size: 25px;
+  }
+
+  .header__title .h-img {
+    top: 150px;
+    right: 90px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    margin-bottom: 45px;
+  }
+
+  .header__title .h-img {
+    width: 75%;
+    top: 158px;
+    right: 55px;
   }
 }
 
@@ -1266,6 +1313,7 @@ ul {
   background-color: #dddddd;
   border: 3px solid white;
   text-align: center;
+  padding: 5px;
 }
 
 .calc__block_el:hover {
@@ -1274,6 +1322,10 @@ ul {
 
 .calc__block_el.active {
   border-color: #00b5c5;
+}
+
+.calc__block_el img {
+  max-height: 100%;
 }
 
 .calc__info {
@@ -1287,6 +1339,11 @@ ul {
   margin: 0 auto 30px auto;
   padding: 10px;
   text-align: center;
+}
+
+.calc__info_tabl img {
+  height: 100%;
+  width: auto;
 }
 
 .calc__info_color {
@@ -1740,7 +1797,7 @@ ul {
 
 .seoText__content {
   height: 500px;
-  background: url("../../dist/image/section-bg.jpg") top left no-repeat;
+  background: url("../../../dist/image/section-bg.jpg") top left no-repeat;
   position: relative;
 }
 
@@ -1818,7 +1875,7 @@ ul {
 }
 
 .slider__box_text {
-  background: url("../../dist/image/reviews/quotes.jpg") no-repeat;
+  background: url("../../../dist/image/reviews/quotes.jpg") no-repeat;
   background-position-x: 85%;
   background-position-y: 75%;
   color: #ffffff;
@@ -2006,7 +2063,7 @@ ul {
 
 .delivery__block_man {
   position: absolute;
-  background: url("../../dist/image/man.png") center center no-repeat;
+  background: url("../../../dist/image/man.png") center center no-repeat;
   background-size: cover;
   width: 486px;
   height: 519px;
@@ -2075,7 +2132,7 @@ ul {
 }
 
 .pay__block {
-  background: url("../../dist/image/pay/pay-bg.jpg") no-repeat;
+  background: url("../../../dist/image/pay/pay-bg.jpg") no-repeat;
   background-position-y: 100%;
 }
 

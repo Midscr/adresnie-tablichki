@@ -1,0 +1,80 @@
+section.form-calc#calculator
+    .popup__form
+        form.popup__block(action="/calc" method="post" name="form-popup" autocomplete='off')
+            .popup__block_label
+                p ваш заказ
+            .popup__block_tabl
+                input.popup__block_tabl-form(type='hidden' name='form' value='')
+            .popup__block_address Комментарий к заказу: 
+            .popup__block_add Дополнительные опции:
+            .popup__block_number Кол-во: 
+            .popup__block_cost Итоговая стоимость:
+            .popup__block_name
+            .popup__block_phone
+            .popup__block_submit
+                input.button(type="submit" value="Подтвердить заявку")
+    .container
+        form.calc(name="form-calc" autocomplete='off')
+            .calc__label
+                p 
+                    span.calc__label-color(data-name="План эвакуации") планы эвакуации 
+                    span по гост р 12.2.143-2009 
+            .calc__block.col-lg-7.col-md-7.col-sm-12.col-xs-12
+                .calc__block_el.col-lg-6.col-md-6.col-sm-6.col-xs-6.active
+                    img(src="/dist/image/plan/zakazat-plan-evakuatsii-po-gostu/plan-1.jpg", alt="План 1", data-tabl="/plan/zakazat-plan-evakuatsii-po-gostu/plan-1.jpg")
+                .calc__block_el.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                    img(src="/dist/image/plan/zakazat-plan-evakuatsii-po-gostu/plan-2.jpg", alt="План 2", data-tabl="/plan/zakazat-plan-evakuatsii-po-gostu/plan-2.jpg")
+                .calc__block_el.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                    img(src="/dist/image/plan/zakazat-plan-evakuatsii-po-gostu/plan-3.jpg", alt="План 3", data-tabl="/plan/zakazat-plan-evakuatsii-po-gostu/plan-3.jpg")
+                .calc__block_el.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                    img(src="/dist/image/plan/zakazat-plan-evakuatsii-po-gostu/plan-4.jpg", alt="План 4", data-tabl="/plan/zakazat-plan-evakuatsii-po-gostu/plan-4.jpg")
+            .calc__info.col-lg-5.col-md-5.col-sm-12.col-xs-12  
+                .calc__info_tabl
+                    img(src="/dist/image/plan/zakazat-plan-evakuatsii-po-gostu/plan-1.jpg", alt="План 1", data-tabl="/plan/zakazat-plan-evakuatsii-po-gostu/plan-1.jpg")
+                .calc__add
+                    p.calc__add_label дополнительные опции
+                    label#reflective
+                        input.calc__add_checkbox(type="checkbox", for="reflective", name="add", value="Уже есть макет  нужно только изготовление")
+                        .checkbox
+                        .checkbox_label Уже есть макет нужно только изготовление
+                    label#courier
+                        input.calc__add_checkbox(type="checkbox", for="courier", name="add", value="Доставка курьером")
+                        .checkbox
+                        .checkbox_label Доставка курьером (+ 150 руб.)
+                    label#pvc
+                        input.calc__add_checkbox(type="radio", for="pvc", name="base", value="А2 (40x60 см)", checked)
+                        .checkbox
+                        .checkbox_label А2 (40x60 см)
+                    label#aluminium
+                        input.calc__add_checkbox(type="radio", for="aluminium", name="base", value="А3 (40x30 см)")
+                        .checkbox
+                        .checkbox_label А3 (40x30 см)
+                .calc__address
+                    label.calc__address_label(for="address")
+                    textarea#address(type='text', name='address', placeholder='Комментарий к заказу', maxlength='300')
+                .calc__number
+                    .calc__number_label количество
+                    label#one
+                        .radio_label 1
+                        input.calc__number_radio(type="radio", for="one", name="number", value="1" checked)
+                        .radio
+                    label#two
+                        .radio_label 2
+                        input.calc__number_radio(type="radio", for="two", name="number", value="2")
+                        .radio
+                    label#three
+                        .radio_label 3
+                        input.calc__number_radio(type="radio", for="three", name="number", value="3")
+                        .radio
+                    input.calc__number_enter(type="text", name="number", placeholder="кол-во")
+                .calc__discount
+                    .calc__discount_label скидка
+                    span 10%
+                    span 15%
+                    span 20%
+                .calc__submit
+                    p.cost Итого: 
+                            span.cost_result 1100 руб.
+                    input.button(type="submit" value="оформить заказ")
+                    
+        

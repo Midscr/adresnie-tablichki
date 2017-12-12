@@ -245,11 +245,15 @@
         background-color: #dddddd;
         border: 3px solid white;
         text-align: center;
+        padding: 5px;
         &:hover {
             border-color: #00b5c5;
         }
         &.active {
             border-color: #00b5c5;
+        }
+        & img {
+            max-height: 100%;
         }
     }
 }
@@ -263,6 +267,10 @@
         margin: 0 auto 30px auto;
         padding: 10px;
         text-align: center;
+        & img {
+            height: 100%;
+            width: auto;
+        }
     }
     &_color {
         line-height: 30px;

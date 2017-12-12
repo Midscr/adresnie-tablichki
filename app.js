@@ -9,6 +9,8 @@ const mail = require('./modules/mail');
 const app = express();
 const cityRouter = express.Router();
 const sms = new SMSru('653E4A84-3621-A160-D94E-EB5E2A50200F');
+const domain = 'adresnie-tablichki.ru';
+const email = 'zayavki-s-saita26@mail.ru';
 
 app.set('host', 'localhost');
 app.set('port', 5000);
@@ -58,9 +60,9 @@ app.post('/calc', function (req, res) {
 
 
   mail.sendMail({
-    from: 'zayavki-s-saita26@mail.ru', // разкомментировать перед выгрузкой
-    to: 'zayavki-s-saita26@mail.ru',
-    subject: 'Заказ таблички из города ' + city.city,
+    from: email,
+    to: email,
+    subject: 'Заказ из города ' + city.city + ', ' + req.query.type,
     html: '<span style="margin=0">Размер: ' +
       req.query.size + '</span></br><span style="margin=0">Цвет: ' +
       req.query.color + '</span></br><span style="margin=0">Основа: ' +
@@ -68,8 +70,8 @@ app.post('/calc', function (req, res) {
       req.query.address + '</span></br><span style="margin=0">Дополнительные опции:</span><span>' +
       req.query.add + '</span></br><span style="margin=0">Количество:' +
       req.query.number + '</span></br><span style="margin=0">Стоимость:' +
-      req.query.cost + '</span></br><a href="http://adresnie-tablichki.ru/dist/image/svg/' +
-      req.query.form + '.svg">Изображение</a></br><span style="margin=0">Имя: ' +
+      req.query.cost + '</span></br><a href="http://adresnie-tablichki.ru/dist/image' +
+      req.query.form + '">Изображение</a></br><span style="margin=0">Имя: ' +
       req.query.name + '</span></br><span style="margin=0">Телефон: ' +
       req.query.phone + '</span>'
   });
@@ -100,9 +102,9 @@ app.post('/callback', function (req, res) {
   };
 
   mail.sendMail({
-    from: 'zayavki-s-saita26@mail.ru', // разкомментировать перед выгрузкой
-    to: 'zayavki-s-saita26@mail.ru',
-    subject: 'Перезвоните мне, я ' + city.prepositionalCity,
+    from: email,
+    to: email,
+    subject: 'Перезвоните мне, я ' + city.prepositionalCity + ', хочу заказать ' + req.body.type,
     text: 'Имя: ' + req.body.name + ', телефон: ' + req.body.phone
   });
   sms.sms_send({
@@ -123,7 +125,7 @@ cityRouter.route('/').get(function (req, res) {
   let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
   emptyCity.postAddress = noCity.postAddress;
 
-  if (!city && req.headers.host != 'adresnie-tablichki.ru') {
+  if (!city && req.headers.host != domain) {
     res.render('404');
   } else if (city) {
     let population = parseInt(city.population.replace(/\s/g, ''));
@@ -148,7 +150,7 @@ cityRouter.route('/').get(function (req, res) {
 cityRouter.route('/:cityName').get(function (req, res) {
   let city = cities.filter(item => item.cityEn.toLowerCase() === req.params.cityName)[0];
   let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
-  if (req.headers.host == 'adresnie-tablichki.ru' && city) {
+  if (req.headers.host == domain && city) {
     let population = parseInt(city.population.replace(/\s/g, ''));
     if (population > 40000) {
       res.render('index', {
@@ -195,6 +197,316 @@ app.get('/oplata', (req, res) => {
 
 // Вложенные страницы
 
+app.get('/tablichki-na-kabinet-shkole', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-na-kabinet-shkole/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-na-kabinet-shkole/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/tablichki-klass-energoeffectivnosti-doma', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-klass-energoeffectivnosti-doma/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-klass-energoeffectivnosti-doma/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/tablichki-na-dver-kabineta', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-na-dver-kabineta/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-na-dver-kabineta/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+app.get('/tablichki-na-dver-kabineta', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-na-dver-kabineta/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-na-dver-kabineta/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/tablichki-na-podezd-s-nomerami-kvartir', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-na-podezd-s-nomerami-kvartir/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-na-podezd-s-nomerami-kvartir/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/tablichki-s-nomerami-etazhei', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-s-nomerami-etazhei/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-s-nomerami-etazhei/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/tablichki-dlya-ofisa', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('tabl/tablichki-dlya-ofisa/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('tabl/tablichki-dlya-ofisa/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/informatsionnye-stendy-s-karmanami', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('stands/informatsionnye-stendy-s-karmanami/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('stands/informatsionnye-stendy-s-karmanami/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/stendy-dlya-shkoly', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('stands/stendy-dlya-shkoly/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('stands/stendy-dlya-shkoly/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/stendy-dlya-detskogo-sada', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('stands/stendy-dlya-detskogo-sada/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('stands/stendy-dlya-detskogo-sada/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/stend-ohrana-truda', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('stands/stend-ohrana-truda/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('stands/stend-ohrana-truda/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
+
+app.get('/zakazat-plan-evakuatsii-po-gostu', (req, res) => {
+  let cityDomainName = req.hostname.replace(/\..*/, '');
+  let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];
+  let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  emptyCity.postAddress = noCity.postAddress;
+
+  if (city) {
+    let population = parseInt(city.population.replace(/\s/g, ''));
+    if (population > 40000) {
+      res.render('plan/zakazat-plan-evakuatsii-po-gostu/index.pug', {
+        title: 'Home',
+        city: city || noCity,
+        cities: cities
+      });
+    } else {
+      return res.render('404');
+    };
+  } else {
+    res.render('plan/zakazat-plan-evakuatsii-po-gostu/index.pug', {
+      title: 'Home',
+      city: emptyCity,
+      cities: cities
+    });
+  }
+});
 // app.get('/adresnie-znaki-na-dom-s-nomerom', (req, res) => {
 //   let cityDomainName = req.hostname.replace(/\..*/, '');
 //   let city = cities.filter(item => item.cityEn.toLowerCase() === cityDomainName)[0];

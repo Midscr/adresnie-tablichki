@@ -12,13 +12,15 @@ $(document).ready(function () {
         );
     };
     $('.contact__callback').on('click', function () {
+        var type = $('.calc__label-color').data('name');;
         vex.dialog.open({
             message: 'обратный звонок',
             input: [
                 '<label for="nameCallback">имя: </label>',
                 '<input id="nameCallback" name="name" type="text" placeholder="Имя" required />',
                 '<label for="phoneCallback">телефон: </label>',
-                '<input id="phoneCallback" name="phone" type="text" placeholder="Телефон" required />'
+                '<input id="phoneCallback" name="phone" type="text" placeholder="Телефон" required />',
+                '<input id="type" name="type" type="hidden" value="' + type +'">'
             ].join(''),
             buttons: [
                 $.extend({}, vex.dialog.buttons.YES, { text: 'Перезвоните мне' }),
@@ -30,7 +32,8 @@ $(document).ready(function () {
                     $.post('/callback?',
                         {
                             'name': data.name,
-                            'phone': data.phone
+                            'phone': data.phone,
+                            'type': data.type
                         })
                 };
             }

@@ -1,0 +1,54 @@
+.header {
+    background: url('/dist/image/a-stand-h-bg.jpg') center center no-repeat;
+    background-size: cover;
+    margin-bottom: 170px;
+    & .h-img {
+        right: 300px; 
+    }
+}
+.seoText {
+    &__content {
+        background: url("/dist/image/a-stand-seo-bg.jpg") top left no-repeat;
+    }
+}
+
+.pay__block {
+    background: none;
+    margin-bottom: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+    .header {
+        & .h-img {
+            right: 220px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .header {
+        & .h-img {
+            right: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        margin-bottom: 100px;
+        & .h-img {
+            right: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .header {
+        & .h-img {
+            right: 25px;
+        }
+    }
+    .calc__label p {
+        font-size: 25px;
+    }
+}

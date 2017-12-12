@@ -47,10 +47,16 @@ $(document).ready(function () {
                 var size;
                 var tablForm;
                 var result;
+                var type;
                 $block = $('.popup__form').clone();
                 $block.find('.popup__block').addClass('active');
                 $block.find('.popup__block_tabl').prepend($('.calc__info_tabl').clone());
-                tablForm = $('svg', '.calc__info_tabl').data('tabl');
+                type = $('.calc__label-color').data('name');
+                if (type == 'Адресная табличка') {
+                    tablForm = $('svg', '.calc__info_tabl').data('tabl');
+                } else {
+                    tablForm = $('img', '.calc__info_tabl').data('tabl');
+                };
                 $block.find('.popup__block_tabl-form').val(tablForm);
                 size = $block.find('span', '.calc__info_tabl').text();
                 $final_cost = $('.cost span').text();
@@ -58,6 +64,7 @@ $(document).ready(function () {
                 $block.find('.popup__block_tabl').append('<input id="sizeCalc" name="size" type="hidden" value="' + size + '">')
                 $block.find('.popup__block_name').append('<input id="nameCalc" name="name" type="text" placeholder="Имя" required="required">');
                 $block.find('.popup__block_phone').append('<input id="phoneCalc" name="phone" type="text" placeholder="Телефон" required="required">');
+                $block.find('.popup__block_phone').append('<input id="type" name="type" type="hidden" value="' + type +'">');
                 for (var index = 0; index < array.length; index++) {
                     var element = array[index];
                     if (element.name == 'color') {

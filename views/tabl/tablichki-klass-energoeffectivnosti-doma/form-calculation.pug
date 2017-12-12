@@ -1,0 +1,90 @@
+section.form-calc#calculator
+    .popup__form
+        form.popup__block(action="/calc" method="post" name="form-popup" autocomplete='off')
+            .popup__block_label
+                p ваш заказ
+            .popup__block_tabl
+                input.popup__block_tabl-form(type='hidden' name='form' value='')
+            .popup__block_add Дополнительные опции:
+            .popup__block_number Кол-во: 
+            .popup__block_cost Итоговая стоимость:
+            .popup__block_name
+            .popup__block_phone
+            .popup__block_submit
+                input.button(type="submit" value="Подтвердить заявку")
+    .container
+        form.calc(name="form-calc" autocomplete='off')
+            .calc__label
+                p 
+                    span.calc__label-color(data-name="Табличка класс энергоэффективности") конструктор 
+                    span табличек 
+            .calc__block.col-lg-7.col-md-7.col-sm-12.col-xs-12
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4.active
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-1.jpg", alt="Табличка 1", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-1.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-2.jpg", alt="Табличка 2", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-2.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-3.jpg", alt="Табличка 3", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-3.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-4.jpg", alt="Табличка 4", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-4.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-5.jpg", alt="Табличка 5", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-5.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-6.jpg", alt="Табличка 6", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-6.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-7.jpg", alt="Табличка 7", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-7.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-8.jpg", alt="Табличка 8", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-8.jpg")
+                .calc__block_el.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-9.jpg", alt="Табличка 9", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-9.jpg")
+            .calc__info.col-lg-5.col-md-5.col-sm-12.col-xs-12  
+                .calc__info_tabl
+                    img(src="/dist/image/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-1.jpg", alt="Табличка 1", data-tabl="/tabl/tablichki-klass-energoeffectivnosti-doma/tabl-energy-1.jpg")
+                .calc__add
+                    p.calc__add_label дополнительные опции
+                    label#lamination
+                        input.calc__add_checkbox(type="checkbox", for="lamination", name="add", value="Ламинирование (+5 лет гарантии)")
+                        .checkbox
+                        .checkbox_label Ламинирование (5 лет гарантии)
+                    label#reflective
+                        input.calc__add_checkbox(type="checkbox", for="reflective", name="add", value="Световозвращающая (неосвещенное место)")
+                        .checkbox
+                        .checkbox_label Световозвращающая (неосвещенное место)
+                    label#courier
+                        input.calc__add_checkbox(type="checkbox", for="courier", name="add", value="Доставка курьером")
+                        .checkbox
+                        .checkbox_label Доставка курьером (+ 150 руб.)
+                    label#pvc
+                        input.calc__add_checkbox(type="radio", for="pvc", name="base", value="ПВХ (4 мм)", checked)
+                        .checkbox
+                        .checkbox_label ПВХ (4 мм)
+                    label#aluminium
+                        input.calc__add_checkbox(type="radio", for="aluminium", name="base", value="Композитный алюминий")
+                        .checkbox
+                        .checkbox_label Композитный алюминий
+                .calc__number
+                    .calc__number_label количество
+                    label#one
+                        .radio_label 1
+                        input.calc__number_radio(type="radio", for="one", name="number", value="1" checked)
+                        .radio
+                    label#two
+                        .radio_label 2
+                        input.calc__number_radio(type="radio", for="two", name="number", value="2")
+                        .radio
+                    label#three
+                        .radio_label 3
+                        input.calc__number_radio(type="radio", for="three", name="number", value="3")
+                        .radio
+                    input.calc__number_enter(type="text", name="number", placeholder="кол-во")
+                .calc__discount
+                    .calc__discount_label скидка
+                    span 10%
+                    span 15%
+                    span 20%
+                .calc__submit
+                    p.cost Итого: 
+                            span.cost_result 1100 руб.
+                    input.button(type="submit" value="оформить заказ")
+                    
+        
