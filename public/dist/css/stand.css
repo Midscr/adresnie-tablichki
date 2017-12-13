@@ -17,6 +17,10 @@
   margin-bottom: 100px;
 }
 
+.calc__info_tabl {
+  background-color: transparent;
+}
+
 @media screen and (max-width: 1200px) {
   .header .h-img {
     right: 220px;

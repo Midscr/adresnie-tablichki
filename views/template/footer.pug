@@ -1,0 +1,65 @@
+footer.foot
+    
+    .container
+        if route
+            .foot__breadcrumbs
+                a(href="http://adresnie-tablichki.ru/") Главная
+                span(style='padding: 0 10px 0 10px') /
+                a(href="http://adresnie-tablichki.ru" + route)= pageName
+        .foot__sites
+            if city.cityEn
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru") Адресные таблички (главная)
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/informatsionnye-stendy-s-karmanami") Информационные стенды
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stend-ohrana-truda") Стенды охрана труда
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stendy-dlya-detskogo-sada") Стенды для детского сада
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stendy-dlya-shkoly") Стенды для школы
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-klass-energoeffectivnosti-doma") Таблички класс энергоэффективности
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-dver-kabineta") Таблички на дверь кабинета
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-kabinet-shkole") Таблички на кабинет в школе
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-podezd-s-nomerami-kvartir") Таблички на подъезд с номером
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-s-nomerami-etazhei") Таблички с номерами этажей
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-dlya-ofisa") Таблички для офиса
+                .sites__block
+                    a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/zakazat-plan-evakuatsii-po-gostu") Планы эвакуации
+            else
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru") Адресные таблички (главная)
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/informatsionnye-stendy-s-karmanami") Информационные стенды
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/stend-ohrana-truda") Стенды охрана труда
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/stendy-dlya-detskogo-sada") Стенды для детского сада
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/stendy-dlya-shkoly") Стенды для школы
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-klass-energoeffectivnosti-doma") Таблички класс энергоэффективности
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-na-dver-kabineta") Таблички на дверь кабинета
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-na-kabinet-shkole") Таблички на кабинет в школе
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-na-podezd-s-nomerami-kvartir") Таблички на подъезд с номером
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-s-nomerami-etazhei") Таблички с номерами этажей
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/tablichki-dlya-ofisa") Таблички для офиса
+                .sites__block
+                    a(href="http://adresnie-tablichki.ru/zakazat-plan-evakuatsii-po-gostu") Планы эвакуации
+    .foot__content
+        a(href="#")
+            img(src="/dist/image/main-logo.png", alt="Ares26.ru")
+
+
+    

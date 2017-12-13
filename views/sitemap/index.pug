@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title= 'Адресные таблички на дом ' + city.city + ', заказать изготовление адресного знака на дом, купить'
+    meta(name="description", content='Адресные таблички на дом ' + city.city + ', заказать изготовление адресного знака на дом, купить аншлаг, цена от 850 руб.')
+    meta(name="keywords" content='Адресные таблички на дом ' + city.city + '>, заказать адресный знак на дом ' + city.prepositionalCity + ', купить аншлаг с номером дом')
+    meta(name="google-site-verification" content="c_GLHKWW1SogtvnMJbrSpjI02mVpv0xqFaiN-z8dcSU")
+    meta(name="yandex-verification" content="d171c764d862eb65")
+    meta(name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1")
+    meta(name="theme-color" content="#00b3c8")
+    link(rel="icon" href="dist/image/ad-tablichki-favicon.png" type="image/png")
+    link(rel="stylesheet", type="text/css", href="/dist/css/reset.css")
+    link(rel="stylesheet", type="text/css", href="/dist/css/grid.css")
+    link(rel="stylesheet", type="text/css", href="/dist/css/vex.css")
+    link(rel="stylesheet", type="text/css", href="/dist/css/vex-theme-default.css")
+    link(rel="stylesheet", type="text/css", href="/dist/css/style.css")
+    script(src="/dist/js/jquery-3.2.1.min.js")
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter45469023 = new Ya.Metrika({ id:45469023, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true, ecommerce:"dataLayer" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script>
+    
+    <noscript><div><img src="https://mc.yandex.ru/watch/45469023" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-103781026-1', 'auto');ga('send', 'pageview');</script>
+  body
+    .wrapper#fullpage
+      include ./header.pug
+      .container
+        ul
+          if city.cityEn
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru") Адресные таблички (главная)
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/informatsionnye-stendy-s-karmanami") Информационные стенды
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stend-ohrana-truda") Стенды охрана труда
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stendy-dlya-detskogo-sada") Стенды для детского сада
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/stendy-dlya-shkoly") Стенды для школы
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-klass-energoeffectivnosti-doma") Таблички класс энергоэффективности
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-dver-kabineta") Таблички на дверь кабинета
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-kabinet-shkole") Таблички на кабинет в школе
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-na-podezd-s-nomerami-kvartir") Таблички на подъезд с номером
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-s-nomerami-etazhei") Таблички с номерами этажей
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/tablichki-dlya-ofisa") Таблички для офиса
+              li
+                  a(href="http://" + city.cityEn + ".adresnie-tablichki.ru/zakazat-plan-evakuatsii-po-gostu") Планы эвакуации
+          else
+              li
+                  a(href="http://adresnie-tablichki.ru") Адресные таблички (главная)
+              li
+                  a(href="http://adresnie-tablichki.ru/informatsionnye-stendy-s-karmanami") Информационные стенды
+              li
+                  a(href="http://adresnie-tablichki.ru/stend-ohrana-truda") Стенды охрана труда
+              li
+                  a(href="http://adresnie-tablichki.ru/stendy-dlya-detskogo-sada") Стенды для детского сада
+              li
+                  a(href="http://adresnie-tablichki.ru/stendy-dlya-shkoly") Стенды для школы
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-klass-energoeffectivnosti-doma") Таблички класс энергоэффективности
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-na-dver-kabineta") Таблички на дверь кабинета
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-na-kabinet-shkole") Таблички на кабинет в школе
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-na-podezd-s-nomerami-kvartir") Таблички на подъезд с номером
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-s-nomerami-etazhei") Таблички с номерами этажей
+              li
+                  a(href="http://adresnie-tablichki.ru/tablichki-dlya-ofisa") Таблички для офиса
+              li
+                  a(href="http://adresnie-tablichki.ru/zakazat-plan-evakuatsii-po-gostu") Планы эвакуации
+  include ./footer.pug
+  
+  script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=init")
+  script(src="/dist/js/map.js")
+  script(src="/dist/js/vex.combined.min.js")
+  script.
+    vex.defaultOptions.className = 'vex-theme-default'
+  script(src="/dist/js/slick.min.js")
+  script(src="/dist/js/slider.js")
+  script(src="/dist/js/callback.js")
+  script(src="/dist/js/calc.js")
+  script(src="/dist/js/nav.js")
+  script(src="/dist/js/jquery.inputmask.bundle.min.js")
+  

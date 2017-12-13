@@ -24,3 +24,7 @@
   width: 100%;
   height: 100px;
 }
+
+.calc__info_tabl {
+  background-color: transparent;
+}
