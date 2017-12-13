@@ -6,6 +6,16 @@ footer.foot
                 a(href="http://adresnie-tablichki.ru/") Главная
                 span(style='padding: 0 10px 0 10px') /
                 a(href="http://adresnie-tablichki.ru" + route)= pageName
+        .foot__contact(itemscope itemtype="http://schema.org/Organization")
+            .row
+                .contact__name.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                    span(itemprop="name") Адресные-Таблички.ру
+                .contact__phone.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                    span(itemprop="telephone") +7(804) 333 70 60
+                .contact__email.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                    span(itemprop="email") pochta@adresnie-tablichki.ru
+                .contact__address.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                    span(itemprop="address")= city.postAddress
         .foot__sites
             if city.cityEn
                 .sites__block

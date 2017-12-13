@@ -1653,6 +1653,10 @@ ul {
   .calc__discount span {
     margin-right: 25px;
   }
+
+  .calc__block_el img {
+    max-width: 60%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1663,23 +1667,19 @@ ul {
   .calc__info_tabl {
     width: 100%;
   }
+
+  .calc__block_el img {
+    max-width: 60%;
+  }
 }
 
 @media screen and (max-width: 450px) {
-  .calc__info_tabl {
-    height: auto;
-  }
-
   .calc__info_tabl span {
     font-size: 10px;
   }
 
   .svg {
     height: 50px;
-  }
-
-  .svg_big {
-    height: 100px;
   }
 
   .checkbox_label {
@@ -2264,6 +2264,7 @@ ul {
   width: 100%;
   font-size: 16px;
   border: 2px solid #ffffff;
+  margin-bottom: 10px;
 }
 
 .contacts__details tr {
@@ -2275,10 +2276,96 @@ ul {
   border: 1px dashed #ffffff;
 }
 
+.contact__rating {
+  max-width: 530px;
+  margin-left: auto;
+}
+
+.contact__rating-wr {
+  border: 2px solid #ffffff;
+}
+
+.r_head,
+.r_rating,
+.r_votes,
+.r_name,
+.r_price {
+  padding: 0px 5px 0px 20px;
+  line-height: 40px;
+}
+
+.r_head div,
+.r_rating div,
+.r_votes div,
+.r_name div,
+.r_price div {
+  display: inline-block;
+}
+
+.r_head div:nth-of-type(1),
+.r_rating div:nth-of-type(1),
+.r_votes div:nth-of-type(1),
+.r_name div:nth-of-type(1),
+.r_price div:nth-of-type(1) {
+  width: 30%;
+}
+
+.r_head div:nth-of-type(2),
+.r_rating div:nth-of-type(2),
+.r_votes div:nth-of-type(2),
+.r_name div:nth-of-type(2),
+.r_price div:nth-of-type(2) {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.r_rating,
+.r_votes,
+.r_name,
+.r_price {
+  background-color: #00919D;
+}
+
+.r_rating div:nth-of-type(1),
+.r_votes div:nth-of-type(1),
+.r_name div:nth-of-type(1),
+.r_price div:nth-of-type(1) {
+  border-right: 1px dashed #ffffff;
+}
+
+.r_rating div:nth-of-type(2),
+.r_votes div:nth-of-type(2),
+.r_name div:nth-of-type(2),
+.r_price div:nth-of-type(2) {
+  font-size: 14px;
+}
+
+.r_head {
+  border-bottom: 2px solid #ffffff;
+  background-color: #007F8A;
+  font-size: 16px;
+}
+
+.r_head div:nth-of-type(2) {
+  text-align: right;
+}
+
 .contacts__map {
+  position: relative;
   float: right;
   width: 50%;
-  height: 400px;
+  height: 600px;
+}
+
+.contacts__map .emblem {
+  position: absolute;
+  z-index: 10;
+  top: 100px;
+  right: -185px;
+}
+
+.contacts__map .emblem img {
+  max-width: 20%;
 }
 
 .contact__details-wr {
@@ -2350,6 +2437,28 @@ fieldset {
   display: block;
 }
 
+@media screen and (max-width: 1100px) {
+  .contacts__details table {
+    font-size: 14px;
+  }
+
+  .r_head div:nth-of-type(1),
+  .r_rating div:nth-of-type(1),
+  .r_votes div:nth-of-type(1),
+  .r_name div:nth-of-type(1),
+  .r_price div:nth-of-type(1) {
+    width: 40%;
+  }
+
+  .r_head div:nth-of-type(2),
+  .r_rating div:nth-of-type(2),
+  .r_votes div:nth-of-type(2),
+  .r_name div:nth-of-type(2),
+  .r_price div:nth-of-type(2) {
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .contacts__details {
     float: none;
@@ -2359,7 +2468,8 @@ fieldset {
   }
 
   .contact__details-wr,
-  .contacts__map-wr {
+  .contacts__map-wr,
+  .contact__rating {
     margin: 0 auto;
     max-width: 750px;
     padding: 0 15px 0 15px;
@@ -2379,6 +2489,36 @@ fieldset {
 
   .contacts__details table {
     font-size: 12px;
+  }
+
+  .r_head div,
+  .r_rating div,
+  .r_votes div,
+  .r_name div,
+  .r_price div {
+    font-size: 12px;
+  }
+
+  .r_head div:nth-of-type(2),
+  .r_rating div:nth-of-type(2),
+  .r_votes div:nth-of-type(2),
+  .r_name div:nth-of-type(2),
+  .r_price div:nth-of-type(2) {
+    font-size: 12px;
+  }
+
+  .emblem img {
+    max-width: 15%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .r_head,
+  .r_rating,
+  .r_votes,
+  .r_name,
+  .r_price {
+    line-height: 20px;
   }
 }
 
@@ -2467,10 +2607,12 @@ fieldset {
 
 .foot {
   width: 100%;
+  padding-top: 20px;
 }
 
 .foot__breadcrumbs {
-  padding: 10px;
+  padding: 10px 0;
+  margin-bottom: 10px;
 }
 
 .foot__sites {
@@ -2521,4 +2663,15 @@ fieldset {
 
 .sites__block:hover a {
   color: #f6f6f6;
+}
+
+.foot__contact {
+  color: #979797;
+}
+
+.contact__name,
+.contact__phone,
+.contact__email,
+.contact__address {
+  padding: 0 15px;
 }

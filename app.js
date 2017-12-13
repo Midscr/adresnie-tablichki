@@ -135,6 +135,10 @@ cityRouter.route('/').get(function (req, res) {
         title: 'Home',
         city: city || noCity,
         cities: cities,
+        pName: 'Табличка на дом',
+        pRating: '4.8',
+        pVotes: '247',
+        pPrice: '950 руб.'
       });
     } else {
       res.render('404');
@@ -144,6 +148,10 @@ cityRouter.route('/').get(function (req, res) {
       title: 'Home',
       city: emptyCity,
       cities: cities,
+      pName: 'Табличка на дом',
+      pRating: '4.8',
+      pVotes: '247',
+      pPrice: '950 руб.'
     });
   }
 });
@@ -158,6 +166,12 @@ cityRouter.route('/:cityName').get(function (req, res) {
         title: 'Home',
         city: city || noCity,
         cities: cities,
+        route: city.cityEn || noCity.cityEn,
+        pageName: city.city || noCity.city,
+        pName: 'Табличка на дом',
+        pRating: '4.8',
+        pVotes: '247',
+        pPrice: '950 руб.'
       });
     } else {
       return res.render('404');
@@ -211,7 +225,13 @@ function fabricInsidePageHandler(opts) {
         res.render(opts.indexLink, {
           title: 'Home',
           city: city || noCity,
-          cities: cities
+          cities: cities,
+          route: opts.route,
+          pageName: opts.pageName,
+          pName: opts.pName,
+          pRating: opts.pRating,
+          pVotes: opts.pVotes,
+          pPrice: opts.pPrice
         });
       } else {
         return res.render('404');
@@ -222,25 +242,120 @@ function fabricInsidePageHandler(opts) {
         city: emptyCity,
         cities: cities,
         route: opts.route,
-        pageName: opts.pageName
+        pageName: opts.pageName,
+        pName: opts.pName,
+        pRating: opts.pRating,
+        pVotes: opts.pVotes,
+        pPrice: opts.pPrice
       });
     }
   }
 }
 
 const insidePages = [
-  { route: '/tablichki-na-kabinet-shkole', indexLink: 'tabl/tablichki-na-kabinet-shkole/index.pug', pageName: 'Таблички на кабинет в школе' },
-  { route: '/tablichki-klass-energoeffectivnosti-doma', indexLink: 'tabl/tablichki-klass-energoeffectivnosti-doma/index.pug', pageName: 'Таблички класс энергоэффективности' },
-  { route: '/tablichki-na-dver-kabineta', indexLink: 'tabl/tablichki-na-dver-kabineta/index.pug', pageName: 'Таблички на дверь кабинета' },
-  { route: '/tablichki-na-podezd-s-nomerami-kvartir', indexLink: 'tabl/tablichki-na-podezd-s-nomerami-kvartir/index.pug', pageName: 'Таблички на подъезд' },
-  { route: '/tablichki-s-nomerami-etazhei', indexLink: 'tabl/tablichki-s-nomerami-etazhei/index.pug', pageName: 'Таблички с номерами этажей' },
-  { route: '/tablichki-dlya-ofisa', indexLink: 'tabl/tablichki-dlya-ofisa/index.pug', pageName: 'Таблички для офиса' },
-  { route: '/informatsionnye-stendy-s-karmanami', indexLink: 'stands/informatsionnye-stendy-s-karmanami/index.pug', pageName: 'Информационные стенды' },
-  { route: '/stendy-dlya-shkoly', indexLink: 'stands/stendy-dlya-shkoly/index.pug', pageName: 'Стенды для школы' },
-  { route: '/stendy-dlya-detskogo-sada', indexLink: 'stands/stendy-dlya-detskogo-sada/index.pug', pageName: 'Стенды для детского сада' },
-  { route: '/stend-ohrana-truda', indexLink: 'stands/stend-ohrana-truda/index.pug', pageName: 'Стенды охрана труда' },
-  { route: '/zakazat-plan-evakuatsii-po-gostu', indexLink: 'plan/zakazat-plan-evakuatsii-po-gostu/index.pug', pageName: 'Планы эвакуации' },
-  { route: '/sitemap', indexLink: 'sitemap/index.pug', pageName: 'Сайтмап' },
+  { 
+    route: '/tablichki-na-kabinet-shkole', 
+    indexLink: 'tabl/tablichki-na-kabinet-shkole/index.pug', 
+    pageName: 'Таблички на кабинет в школе',
+    pName: 'Табличка на кабинет',
+    pRating: '4.8',
+    pVotes: '231',
+    pPrice: '800 руб.'
+  },
+  { 
+    route: '/tablichki-klass-energoeffectivnosti-doma', 
+    indexLink: 'tabl/tablichki-klass-energoeffectivnosti-doma/index.pug', 
+    pageName: 'Таблички класс энергоэффективности',
+    pName: 'Табличка ЖКХ',
+    pRating: '4.7',
+    pVotes: '258',
+    pPrice: '500 руб.'
+  },
+  { 
+    route: '/tablichki-na-dver-kabineta', 
+    indexLink: 'tabl/tablichki-na-dver-kabineta/index.pug', 
+    pageName: 'Таблички на дверь кабинета',
+    pName: 'Офисная табличка',
+    pRating: '4.5',
+    pVotes: '219',
+    pPrice: '800 руб.'
+  },
+  { 
+    route: '/tablichki-na-podezd-s-nomerami-kvartir', 
+    indexLink: 'tabl/tablichki-na-podezd-s-nomerami-kvartir/index.pug', 
+    pageName: 'Таблички на подъезд',
+    pName: 'Табличка ЖКХ',
+    pRating: '4.6',
+    pVotes: '283',
+    pPrice: '500 руб.'
+  },
+  { 
+    route: '/tablichki-s-nomerami-etazhei', 
+    indexLink: 'tabl/tablichki-s-nomerami-etazhei/index.pug', 
+    pageName: 'Таблички с номерами этажей',
+    pName: 'Табличка ЖКХ',
+    pRating: '4.8',
+    pVotes: '201',
+    pPrice: '500 руб.'
+  },
+  { 
+    route: '/tablichki-dlya-ofisa', 
+    indexLink: 'tabl/tablichki-dlya-ofisa/index.pug', 
+    pageName: 'Таблички для офиса',
+    pName: 'Офисная табличка',
+    pRating: '4.6',
+    pVotes: '266',
+    pPrice: '800 руб.'
+  },
+  { 
+    route: '/informatsionnye-stendy-s-karmanami', 
+    indexLink: 'stands/informatsionnye-stendy-s-karmanami/index.pug', 
+    pageName: 'Информационные стенды',
+    pName: 'Информационный стенд',
+    pRating: '4.7',
+    pVotes: '255',
+    pPrice: '1200 руб.'
+  },
+  { 
+    route: '/stendy-dlya-shkoly', 
+    indexLink: 'stands/stendy-dlya-shkoly/index.pug', 
+    pageName: 'Стенды для школы',
+    pName: 'Стенд для школы',
+    pRating: '4.9',
+    pVotes: '299',
+    pPrice: '1200 руб.' 
+  },
+  { 
+    route: '/stendy-dlya-detskogo-sada', 
+    indexLink: 'stands/stendy-dlya-detskogo-sada/index.pug',
+    pageName: 'Стенды для детского сада',
+    pName: 'Стенд для детского сада',
+    pRating: '4.7',
+    pVotes: '271',
+    pPrice: '1200 руб.' 
+  },
+  { 
+    route: '/stend-ohrana-truda', 
+    indexLink: 'stands/stend-ohrana-truda/index.pug', 
+    pageName: 'Стенды охрана труда',
+    pName: 'Стенды охрана труда',
+    pRating: '4.5',
+    pVotes: '209',
+    pPrice: '1200 руб.' 
+  },
+  { 
+    route: '/zakazat-plan-evakuatsii-po-gostu', 
+    indexLink: 'plan/zakazat-plan-evakuatsii-po-gostu/index.pug', 
+    pageName: 'Планы эвакуации',
+    pName: 'План эвакуации',
+    pRating: '4.9',
+    pVotes: '287',
+    pPrice: '2950 руб.'  
+  },
+  { 
+    route: '/sitemap', 
+    indexLink: 'sitemap/index.pug', 
+    pageName: 'Сайтмап' },
 ]
 
 insidePages.forEach(page => {

@@ -1,4 +1,5 @@
 section.contacts.clearfix#contact
+    
     .contacts__details
         .contact__details-wr
             h2 реквизиты
@@ -21,7 +22,36 @@ section.contacts.clearfix#contact
                 tr
                     td БИК Банка
                     td 044525974
+        .contact__rating(itemscope itemtype='http://schema.org/Product')
+            .contact__rating-wr
+                .r_head
+                    div Итого
+                    div
+                        span= pRating + ' Stars'
+                .r_aggregateRating(itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating")
+                    .r_rating
+                        div Общий рейтинг:
+                        div
+                            span(itemprop="ratingValue")= pRating 
+                            span= ' среднее'
+                    .r_votes
+                        div Проголосовало:
+                        div
+                            span(itemprop="reviewCount")= pVotes
+                            span= ' проголосовавших'
+                .r_name
+                    div Название товара:
+                    div
+                        span(itemprop="name")= pName
+                .r_price(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
+                    div Цена:
+                    div
+                        span= 'от '
+                        span(itemprop="price")= pPrice
+
     .contacts__map
         .contacts__map-wr(data-address=city.postAddress)
             #map(style="width: 100%; height: 100%")
+        .emblem
+            img(src="dist/image/emblem/" + city.emblem, alt="Герб города " + city.city)
             

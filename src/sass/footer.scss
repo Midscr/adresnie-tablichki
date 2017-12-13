@@ -1,7 +1,9 @@
 .foot {
     width: 100%;
+    padding-top: 20px;
     &__breadcrumbs {
-        padding: 10px;
+        padding: 10px 0;
+        margin-bottom: 10px;
     }
     &__sites {
         padding-top: 20px;
@@ -46,3 +48,10 @@
         }
     }
 }
+
+.foot__contact {
+    color: #979797;
+}
+.contact__name, .contact__phone, .contact__email, .contact__address {
+    padding: 0 15px;
+} 

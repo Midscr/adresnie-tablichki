@@ -545,6 +545,9 @@
             margin-right: 25px;
         }
     }
+    .calc__block_el img {
+        max-width: 60%;
+    }
 }
 @media screen and (max-width: 768px) {
     .calc__block_el {
@@ -555,19 +558,18 @@
     .calc__info_tabl {
         width: 100%;
     }
+    .calc__block_el img {
+        max-width: 60%;
+    }
 }
 @media screen and (max-width: 450px) {
     .calc__info_tabl {
-        height: auto;
         & span {
             font-size: 10px;
         }
     }
     .svg {
         height: 50px;
-    }
-    .svg_big {
-        height: 100px;
     }
     .checkbox_label {
         font-size: 12px;
