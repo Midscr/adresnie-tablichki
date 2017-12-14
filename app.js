@@ -4,13 +4,14 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const SMSru = require('sms_ru');
 const cityMap = require('./modules/bd');
+const delivery = require('./modules/bd_delivery');
 const mail = require('./modules/mail');
 
 const app = express();
 const cityRouter = express.Router();
 const sms = new SMSru('653E4A84-3621-A160-D94E-EB5E2A50200F');
-const domain = 'localhost:5000';
-// const domain = 'adresnie-tablichki.ru';
+// const domain = 'localhost:5000';
+const domain = 'adresnie-tablichki.ru';
 const email = 'zayavki-s-saita26@mail.ru';
 
 app.set('host', 'localhost');
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 let cities = {};
+let dPoint = {};
 let emptyCity = {
   population: 1000000,
   city: '',
@@ -41,6 +43,12 @@ let emptyCity = {
 cityMap(function (err, result) {
   cities = result;
 });
+
+delivery(function (err, result) {
+  dPoint = result;
+});
+
+
 
 app.use(express.static('public'));
 
@@ -125,33 +133,37 @@ cityRouter.route('/').get(function (req, res) {
   let cityUrlName = req.url.substr(1);
   let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
   emptyCity.postAddress = noCity.postAddress;
-
+  
   if (!city && req.headers.host != domain) {
     res.render('404');
   } else if (city) {
+    address = dPoint.filter(item => item.city.toLowerCase() === city.city.toLowerCase());
     let population = parseInt(city.population.replace(/\s/g, ''));
     if (population > 40000) {
       res.render('index', {
         title: 'Home',
         city: city || noCity,
         cities: cities,
+        address: address,
         pName: 'Табличка на дом',
         pRating: '4.8',
         pVotes: '247',
-        pPrice: '950 руб.'
+        pPrice: '950'
       });
     } else {
       res.render('404');
     }
   } else {
+    address = dPoint.filter(item => item.city.toLowerCase() === noCity.city.toLowerCase());
     res.render('index', {
       title: 'Home',
       city: emptyCity,
       cities: cities,
+      address: address,
       pName: 'Табличка на дом',
       pRating: '4.8',
       pVotes: '247',
-      pPrice: '950 руб.'
+      pPrice: '950'
     });
   }
 });
@@ -159,6 +171,11 @@ cityRouter.route('/').get(function (req, res) {
 cityRouter.route('/:cityName').get(function (req, res) {
   let city = cities.filter(item => item.cityEn.toLowerCase() === req.params.cityName)[0];
   let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
+  if (city) {
+    address = dPoint.filter(item => item.city.toLowerCase() === city.city.toLowerCase());
+  } else {
+    address = dPoint.filter(item => item.city.toLowerCase() === noCity.city.toLowerCase());
+  }
   if (req.headers.host == domain && city) {
     let population = parseInt(city.population.replace(/\s/g, ''));
     if (population > 40000) {
@@ -166,12 +183,13 @@ cityRouter.route('/:cityName').get(function (req, res) {
         title: 'Home',
         city: city || noCity,
         cities: cities,
+        address: address,
         route: city.cityEn || noCity.cityEn,
         pageName: city.city || noCity.city,
         pName: 'Табличка на дом',
         pRating: '4.8',
         pVotes: '247',
-        pPrice: '950 руб.'
+        pPrice: '950'
       });
     } else {
       return res.render('404');
@@ -190,21 +208,25 @@ app.get('/oplata', (req, res) => {
   let noCity = cities.filter(item => item.cityEn.toLowerCase() === 'stavropol')[0];
   if (city) {
     let population = parseInt(city.population.replace(/\s/g, ''));
+    address = dPoint.filter(item => item.city.toLowerCase() === city.city.toLowerCase());
     if (population > 40000) {
       res.render('oplata/index.pug', {
         title: 'Pay-online',
         city: city || noCity,
-        cities: cities
+        cities: cities,
+        address: address,
       });
     } else {
       return res.render('404');
     };
 
   } else {
+    address = dPoint.filter(item => item.city.toLowerCase() === noCity.city.toLowerCase());
     res.render('oplata/index.pug', {
       title: 'Pay-online',
       city: noCity,
-      cities: cities
+      cities: cities,
+      address: address,
     });
   }
 
@@ -220,12 +242,14 @@ function fabricInsidePageHandler(opts) {
     emptyCity.postAddress = noCity.postAddress;
 
     if (city) {
+      address = dPoint.filter(item => item.city.toLowerCase() === city.city.toLowerCase());
       let population = parseInt(city.population.replace(/\s/g, ''));
       if (population > 40000) {
         res.render(opts.indexLink, {
           title: 'Home',
           city: city || noCity,
           cities: cities,
+          address: address,
           route: opts.route,
           pageName: opts.pageName,
           pName: opts.pName,
@@ -237,10 +261,12 @@ function fabricInsidePageHandler(opts) {
         return res.render('404');
       };
     } else {
+      address = dPoint.filter(item => item.city.toLowerCase() === noCity.city.toLowerCase());
       res.render(opts.indexLink, {
         title: 'Home',
         city: emptyCity,
         cities: cities,
+        address: address,
         route: opts.route,
         pageName: opts.pageName,
         pName: opts.pName,
@@ -260,7 +286,7 @@ const insidePages = [
     pName: 'Табличка на кабинет',
     pRating: '4.8',
     pVotes: '231',
-    pPrice: '800 руб.'
+    pPrice: '800'
   },
   { 
     route: '/tablichki-klass-energoeffectivnosti-doma', 
@@ -269,7 +295,7 @@ const insidePages = [
     pName: 'Табличка ЖКХ',
     pRating: '4.7',
     pVotes: '258',
-    pPrice: '500 руб.'
+    pPrice: '500'
   },
   { 
     route: '/tablichki-na-dver-kabineta', 
@@ -278,7 +304,7 @@ const insidePages = [
     pName: 'Офисная табличка',
     pRating: '4.5',
     pVotes: '219',
-    pPrice: '800 руб.'
+    pPrice: '800'
   },
   { 
     route: '/tablichki-na-podezd-s-nomerami-kvartir', 
@@ -287,7 +313,7 @@ const insidePages = [
     pName: 'Табличка ЖКХ',
     pRating: '4.6',
     pVotes: '283',
-    pPrice: '500 руб.'
+    pPrice: '500'
   },
   { 
     route: '/tablichki-s-nomerami-etazhei', 
@@ -296,7 +322,7 @@ const insidePages = [
     pName: 'Табличка ЖКХ',
     pRating: '4.8',
     pVotes: '201',
-    pPrice: '500 руб.'
+    pPrice: '500'
   },
   { 
     route: '/tablichki-dlya-ofisa', 
@@ -305,7 +331,7 @@ const insidePages = [
     pName: 'Офисная табличка',
     pRating: '4.6',
     pVotes: '266',
-    pPrice: '800 руб.'
+    pPrice: '800'
   },
   { 
     route: '/informatsionnye-stendy-s-karmanami', 
@@ -314,7 +340,7 @@ const insidePages = [
     pName: 'Информационный стенд',
     pRating: '4.7',
     pVotes: '255',
-    pPrice: '1200 руб.'
+    pPrice: '1200'
   },
   { 
     route: '/stendy-dlya-shkoly', 
@@ -323,7 +349,7 @@ const insidePages = [
     pName: 'Стенд для школы',
     pRating: '4.9',
     pVotes: '299',
-    pPrice: '1200 руб.' 
+    pPrice: '1200' 
   },
   { 
     route: '/stendy-dlya-detskogo-sada', 
@@ -332,7 +358,7 @@ const insidePages = [
     pName: 'Стенд для детского сада',
     pRating: '4.7',
     pVotes: '271',
-    pPrice: '1200 руб.' 
+    pPrice: '1200' 
   },
   { 
     route: '/stend-ohrana-truda', 
@@ -341,7 +367,7 @@ const insidePages = [
     pName: 'Стенды охрана труда',
     pRating: '4.5',
     pVotes: '209',
-    pPrice: '1200 руб.' 
+    pPrice: '1200' 
   },
   { 
     route: '/zakazat-plan-evakuatsii-po-gostu', 
@@ -350,7 +376,7 @@ const insidePages = [
     pName: 'План эвакуации',
     pRating: '4.9',
     pVotes: '287',
-    pPrice: '2950 руб.'  
+    pPrice: '2950'  
   },
   { 
     route: '/sitemap', 

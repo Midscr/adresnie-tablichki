@@ -48,9 +48,10 @@ section.contacts.clearfix#contact
                     div
                         span= 'от '
                         span(itemprop="price")= pPrice
+                        span(itemprop="priceCurrency")= ' руб.'
 
     .contacts__map
-        .contacts__map-wr(data-address=city.postAddress)
+        .contacts__map-wr(data-address=address[0].address)
             #map(style="width: 100%; height: 100%")
         .emblem
             img(src="dist/image/emblem/" + city.emblem, alt="Герб города " + city.city)
